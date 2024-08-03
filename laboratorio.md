@@ -21,3 +21,12 @@ d22f40fe2848: Pull complete
 Digest: sha256:08ac6c57f123d1ca5dd6c786cd7ceb4251733f98efe1697042e5d28b069916e7
 Status: Downloaded newer image for python:bookworm
 docker.io/library/python:bookworm
+
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -it ubuntu bash
+root@a131875d54a0:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 8080:80 httpd
+a2c67429bb19159accd742a50fc46801dc072279e3b41c31c068f84458ae38cc
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ 
