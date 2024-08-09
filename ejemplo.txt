@@ -1,0 +1,1 @@
+Este es el ejemplo del laboratorio donde copio un archivo.txt con comandos de dockerfile

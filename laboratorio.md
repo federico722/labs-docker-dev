@@ -166,6 +166,30 @@ d711744e1e87beed6f3cc3fbe4814b0c8247074e142a4ea7de65ebe1b014849d
  => exporting to image                                                                                                                                                           1.1s
  => => exporting layers                                                                                                                                                          1.0s
  => => writing image sha256:1f57d50a8e6c7b028b9225fc1919938fac90aa3334429c8ef8fe2bd9cb21e2ee                                                                                     0.0s
- => => naming to docker.io/library/my_nginx_index         
+ => => naming to docker.io/library/my_nginx_index    
 
 --------------------------------------------------------------------------------------------------------------
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t copy_file:latest .
+[+] Building 1.3s (8/8) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.1s
+ => => transferring dockerfile: 269B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/3] FROM docker.io/library/ubuntu:latest                                                                                                                                   0.0s
+ => [internal] load build context                                                                                                                                                0.0s
+ => => transferring context: 127B                                                                                                                                                0.0s
+ => CACHED [2/3] WORKDIR /app                                                                                                                                                    0.0s
+ => [3/3] COPY ejemplo.txt .                                                                                                                                                     0.2s
+ => exporting to image                                                                                                                                                           0.5s
+ => => exporting layers                                                                                                                                                          0.4s
+ => => writing image sha256:1b33506223d394e30daaa679283eeecfc2c3b2f451be578f8e9dfc3f2104ac0e                                                                                     0.0s
+ => => naming to docker.io/library/copy_file:latest                                                                                                                              0.0s
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -it copy_file bash
+root@774e3c858203:/app# ls
+ejemplo.txt
+root@774e3c858203:/app# 
+
+
+
