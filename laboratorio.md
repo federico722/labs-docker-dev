@@ -8,6 +8,9 @@ Digest: sha256:2e863c44b718727c860746568e1d54afd13b2fa71b160f5cd9058fc436217b30
 Status: Downloaded newer image for ubuntu:latest
 docker.io/library/ubuntu:latest
 
+--------------------------------------------------------------------------------------------------------------
+
+
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker pull python:bookworm 
 bookworm: Pulling from library/python
 ca4e5d672725: Pull complete 
@@ -22,15 +25,20 @@ Digest: sha256:08ac6c57f123d1ca5dd6c786cd7ceb4251733f98efe1697042e5d28b069916e7
 Status: Downloaded newer image for python:bookworm
 docker.io/library/python:bookworm
 
+--------------------------------------------------------------------------------------------------------------
+
 
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -it ubuntu bash
 root@a131875d54a0:/# ls
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
+--------------------------------------------------------------------------------------------------------------
+
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 8080:80 httpd
 a2c67429bb19159accd742a50fc46801dc072279e3b41c31c068f84458ae38cc
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ 
 
+--------------------------------------------------------------------------------------------------------------
 
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                        PORTS                                   NAMES
@@ -51,7 +59,7 @@ cb62f5841e88   httpd     "httpd-foreground"       28 hours ago    Created       
 5effa1c857c0   nginx     "/docker-entrypoint.…"   28 hours ago    Exited (0) 28 hours ago                                               jolly_noether
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ 
 
-
+--------------------------------------------------------------------------------------------------------------
 
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker container prune
 WARNING! This will remove all stopped containers.
@@ -68,7 +76,7 @@ Total reclaimed space: 1.095kB
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ 
 
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
 
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t ubuntu-updated:latest .
 [+] Building 9.2s (6/6) FINISHED                                                                                                                                       docker:default
@@ -83,4 +91,81 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
  => => exporting layers                                                                                                                                                          1.1s 
  => => writing image sha256:7e1c24ace2c18e86bb26a99c3e73b938fd855dfe01d5af8baaba244ddd7a81a6                                                                                     0.0s 
  => => naming to docker.io/library/ubuntu-updated:latest  
+
+--------------------------------------------------------------------------------------------------------------
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t nginx_test . 
+[+] Building 0.6s (6/6) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.0s
+ => => transferring dockerfile: 131B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                                                   0.0s
+ => CACHED [2/2] RUN apt-get update && apt-get upgrade -y                                                                                                                        0.0s
+ => exporting to image                                                                                                                                                           0.1s
+ => => exporting layers                                                                                                                                                          0.0s
+ => => writing image sha256:a83b00700107915b58560a87fd65e0a7d0eff688b477293c5d75baa8dabcf078                                                                                     0.0s
+ => => naming to docker.io/library/nginx_test     
+
+--------------------------------------------------------------------------------------------------------------
+
  
+ @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t nginx_test:latest .
+[+] Building 0.5s (6/6) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.1s
+ => => transferring dockerfile: 131B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                                                   0.0s
+ => CACHED [2/2] RUN apt-get update && apt-get upgrade -y                                                                                                                        0.0s
+ => exporting to image                                                                                                                                                           0.1s
+ => => exporting layers                                                                                                                                                          0.0s
+ => => writing image sha256:a83b00700107915b58560a87fd65e0a7d0eff688b477293c5d75baa8dabcf078                                                                                     0.0s
+ => => naming to docker.io/library/nginx_test:latest   
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 80:80 nginx_test:latest                                                                                          
+d711744e1e87beed6f3cc3fbe4814b0c8247074e142a4ea7de65ebe1b014849d                                                                                                                      
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ 
+
+--------------------------------------------------------------------------------------------------------------
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t nginx_test .
+[+] Building 0.5s (6/6) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.0s
+ => => transferring dockerfile: 147B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                                                   0.0s
+ => CACHED [2/2] RUN apt-get update && apt-get upgrade -y nginx                                                                                                                  0.0s
+ => exporting to image                                                                                                                                                           0.1s
+ => => exporting layers                                                                                                                                                          0.0s
+ => => writing image sha256:c7064e32217b7140bb7119f4604d4482eb06f4e532e386919f09089e0627b799                                                                                     0.0s
+ => => naming to docker.io/library/nginx_test     
+
+--------------------------------------------------------------------------------------------------------------
+
+
+ @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t  my_nginx_index .
+[+] Building 2.6s (7/7) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.0s
+ => => transferring dockerfile: 216B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/nginx:latest                                                                                                                  0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.1s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [internal] load build context                                                                                                                                                0.4s
+ => => transferring context: 342B                                                                                                                                                0.0s
+ => [1/2] FROM docker.io/library/nginx:latest                                                                                                                                    0.8s
+ => [2/2] COPY index.html /usr/share/nginx/html/im                                                                                                                               0.2s
+ => exporting to image                                                                                                                                                           1.1s
+ => => exporting layers                                                                                                                                                          1.0s
+ => => writing image sha256:1f57d50a8e6c7b028b9225fc1919938fac90aa3334429c8ef8fe2bd9cb21e2ee                                                                                     0.0s
+ => => naming to docker.io/library/my_nginx_index         
+
+--------------------------------------------------------------------------------------------------------------
