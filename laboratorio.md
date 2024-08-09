@@ -191,5 +191,39 @@ root@774e3c858203:/app# ls
 ejemplo.txt
 root@774e3c858203:/app# 
 
+--------------------------------------------------------------------------------------------------------------
 
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t ejemplo_script-python .
+[+] Building 8.2s (9/9) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.1s
+ => => transferring dockerfile: 349B                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/library/python:3.9                                                                                                                    0.6s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                    0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/3] FROM docker.io/library/python:3.9@sha256:65438c2e26dbf9f5db4b5553e332747fa20722c1b7c7ccc6f8480396ff4186db                                                              3.9s
+ => => resolve docker.io/library/python:3.9@sha256:65438c2e26dbf9f5db4b5553e332747fa20722c1b7c7ccc6f8480396ff4186db                                                              0.1s
+ => => sha256:83a59ab1a4811d0d1b135849e5071eff4d461a56def17589bd1b2f093aeeb5a1 7.31kB / 7.31kB                                                                                   0.0s
+ => => sha256:65438c2e26dbf9f5db4b5553e332747fa20722c1b7c7ccc6f8480396ff4186db 10.35kB / 10.35kB                                                                                 0.0s
+ => => sha256:9972540d93856f9ca3eff2cf803ffb472bf1687cd1a91365cc803a539281900b 2.52kB / 2.52kB                                                                                   0.0s
+ => => sha256:c7d45ab0573c09f3315112fe3e8d273f4b54dab9e8c3f315810afb743e794a28 6.16MB / 6.16MB                                                                                   0.3s
+ => => sha256:564d1c451ea70670b349d1250f5c0577416f873f6ee7b5cb33dafeb21c2c40a4 15.82MB / 15.82MB                                                                                 0.5s
+ => => sha256:ddfb50ba1977e47749619886799b60da9f2a856fca3270ccb051d2f326489bd5 233B / 233B                                                                                       0.3s
+ => => extracting sha256:c7d45ab0573c09f3315112fe3e8d273f4b54dab9e8c3f315810afb743e794a28                                                                                        0.9s
+ => => sha256:91b87d81d4c8d2b201b71e0a5b07fe01ea4e6d1be30cdc8c30f96653b6663df3 2.70MB / 2.70MB                                                                                   0.5s
+ => => extracting sha256:564d1c451ea70670b349d1250f5c0577416f873f6ee7b5cb33dafeb21c2c40a4                                                                                        0.5s
+ => => extracting sha256:ddfb50ba1977e47749619886799b60da9f2a856fca3270ccb051d2f326489bd5                                                                                        0.0s
+ => => extracting sha256:91b87d81d4c8d2b201b71e0a5b07fe01ea4e6d1be30cdc8c30f96653b6663df3                                                                                        0.3s
+ => [internal] load build context                                                                                                                                                0.1s
+ => => transferring context: 94B                                                                                                                                                 0.0s
+ => [2/3] WORKDIR /app                                                                                                                                                           0.2s
+ => [3/3] COPY script.py .                                                                                                                                                       0.2s
+ => exporting to image                                                                                                                                                           2.8s
+ => => exporting layers                                                                                                                                                          2.6s
+ => => writing image sha256:229f5104952cc870ffcdf6b51a3734d5a19bcd5bc07139b08f8c3c3a8f183f85                                                                                     0.0s
+ => => naming to docker.io/library/ejemplo_script-python                                                                                                                         0.0s
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker run --rm ejemplo_script-python
+ejecutando ejemplo de script.py en el contenedor
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ 
 

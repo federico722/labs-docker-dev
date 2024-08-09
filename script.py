@@ -1,0 +1,1 @@
+print('ejecutando ejemplo de script.py en el contenedor');
