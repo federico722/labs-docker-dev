@@ -1,4 +1,4 @@
-# labs-docker-dev
+# labs-docker-devdocker 
 
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker pull ubuntu
 Using default tag: latest
@@ -67,3 +67,20 @@ Total reclaimed space: 1.095kB
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 @federico722 ➜ /workspaces/labs-docker-dev (main) $ 
+
+-----------------------------------------------------------------------------------------------
+
+@federico722 ➜ /workspaces/labs-docker-dev (main) $ docker build -t ubuntu-updated:latest .
+[+] Building 9.2s (6/6) FINISHED                                                                                                                                       docker:default
+ => [internal] load build definition from dockerfile                                                                                                                             0.2s
+ => => transferring dockerfile: 97B                                                                                                                                              0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                                                0.1s
+ => => transferring context: 2B                                                                                                                                                  0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                                                   0.1s
+ => [2/2] RUN apt-get update && apt-get upgrade -y                                                                                                                               7.1s
+ => exporting to image                                                                                                                                                           1.2s 
+ => => exporting layers                                                                                                                                                          1.1s 
+ => => writing image sha256:7e1c24ace2c18e86bb26a99c3e73b938fd855dfe01d5af8baaba244ddd7a81a6                                                                                     0.0s 
+ => => naming to docker.io/library/ubuntu-updated:latest  
+ 
